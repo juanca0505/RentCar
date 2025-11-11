@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "298243169504",
+    "project_id": "rentacar-820e7",
+    "storage_bucket": "rentacar-820e7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:298243169504:android:0d77be7082503f87490485",
+        "android_client_info": {
+          "package_name": "com.example.rentacar_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSifc03xzNsRnL_R9gqPMzf-sv0qurcqo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

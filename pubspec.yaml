@@ -1,0 +1,52 @@
+name: rentacar_flutter
+description: "Aplicación móvil RentACar desarrollada en Flutter + Firebase."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # 📸 Selección de imágenes desde galería o cámara
+  image_picker: ^1.1.2
+
+  # 🔥 Firebase Core (inicialización)
+  firebase_core: ^3.3.0
+
+  # 🔐 Autenticación con Firebase
+  firebase_auth: ^5.1.4
+
+  # ☁️ Base de datos en la nube Firestore
+  cloud_firestore: ^5.2.0
+
+  # 🖼️ Almacenamiento de imágenes (usuarios y autos)
+  firebase_storage: ^12.1.0
+
+  # 📦 Manejo de estado (para AuthProvider)
+  provider: ^6.1.2
+
+  # 🆔 Generador de IDs únicos (para autos)
+  uuid: ^4.4.0
+
+  # 🔤 Íconos estilo iOS
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # 📏 Buenas prácticas de código y análisis estático
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  # 📁 Recursos locales (imágenes, íconos, etc.)
+  assets:
+    - assets/default_avatar.png
+    # Si agregas más imágenes, decláralas aquí:
+    # - assets/cars/
