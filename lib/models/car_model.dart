@@ -7,8 +7,8 @@ class CarModel {
   final double pricePerDay;
   final bool available;
   final String? imageUrl;
-  final String? category; // ✅ Campo nuevo para filtros
-  final String? description; // opcional (para detalle)
+  final String? category; 
+  final String? description; 
 
   CarModel({
     required this.id,
@@ -23,7 +23,7 @@ class CarModel {
     this.description,
   });
 
-  // ✅ Convertir CarModel a mapa (para Firestore)
+  // Convertir CarModel a mapa (para Firestore)
   Map<String, dynamic> toMap() {
     return {
       'id': id,
@@ -39,7 +39,7 @@ class CarModel {
     };
   }
 
-  // ✅ Crear CarModel desde documento Firestore
+  // Cree CarModel desde documento Firestore
   factory CarModel.fromMap(Map<String, dynamic> map) {
     return CarModel(
       id: map['id'] ?? '',
@@ -50,7 +50,7 @@ class CarModel {
       pricePerDay: (map['pricePerDay'] ?? 0).toDouble(),
       available: map['available'] ?? true,
       imageUrl: map['imageUrl'],
-      category: map['category'], // ✅ Agregado
+      category: map['category'],
       description: map['description'],
     );
   }

@@ -21,7 +21,7 @@ class CarDetailScreen extends StatelessWidget {
     final commentService = CommentService();
     final commentCtrl = TextEditingController();
 
-    // 🧩 Datos del carro
+    // Datos del carro
     final brand = carData['brand'] ?? 'Sin marca';
     final model = carData['model'] ?? '';
     final year = carData['year']?.toString() ?? 'N/A';
@@ -45,7 +45,7 @@ class CarDetailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // 🖼️ Imagen del carro
+            // Imagen del carro
             imageUrl != null && imageUrl.isNotEmpty
                 ? Image.network(
                     imageUrl,
@@ -73,7 +73,7 @@ class CarDetailScreen extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // 🧾 Información del carro
+            // Información del carro
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Column(
@@ -137,7 +137,7 @@ class CarDetailScreen extends StatelessWidget {
                   const SizedBox(height: 15),
                   const Divider(),
 
-                  // 📝 Descripción
+                  // Descripción
                   const Text(
                     'Descripción',
                     style: TextStyle(
@@ -154,7 +154,7 @@ class CarDetailScreen extends StatelessWidget {
 
                   const SizedBox(height: 25),
 
-                  // ⚠️ Si el carro es del mismo usuario
+                  // Si el carro es del mismo usuario
                   if (isOwner)
                     const Padding(
                       padding: EdgeInsets.only(bottom: 10),
@@ -167,7 +167,7 @@ class CarDetailScreen extends StatelessWidget {
                       ),
                     ),
 
-                  // 🔑 Botón de rentar
+                  // Botón de rentar
                   ElevatedButton.icon(
                     onPressed: (!available || isOwner)
                         ? null
@@ -222,7 +222,7 @@ class CarDetailScreen extends StatelessWidget {
 
                   const SizedBox(height: 30),
 
-                  // 💬 Sección de comentarios en vivo
+                  // Sección de comentarios en vivo
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -250,7 +250,7 @@ class CarDetailScreen extends StatelessWidget {
                           ),
                         ),
 
-                        // 🔄 StreamBuilder de comentarios
+                        // StreamBuilder de comentarios
                         StreamBuilder<List<CommentModel>>(
                           stream: commentService.getComments(carId),
                           builder: (context, snapshot) {
@@ -302,7 +302,7 @@ class CarDetailScreen extends StatelessWidget {
 
                         const Divider(),
 
-                        // 📝 Campo de texto y botón enviar
+                        //  Campo de texto y botón enviar
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
                           child: Row(

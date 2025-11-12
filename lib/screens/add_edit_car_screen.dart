@@ -65,8 +65,8 @@ class _AddEditCarScreenState extends State<AddEditCarScreen> {
       pricePerDay: double.parse(_priceCtrl.text.trim()),
       available: _available,
       imageUrl: widget.car?.imageUrl,
-      category: _selectedCategory, // ✅ nuevo
-      description: _descCtrl.text.trim(), // ✅ nuevo
+      category: _selectedCategory, 
+      description: _descCtrl.text.trim(), 
     );
 
     await carService.saveCar(car, imageFile: _imageFile);
@@ -127,7 +127,7 @@ class _AddEditCarScreenState extends State<AddEditCarScreen> {
               ),
               const SizedBox(height: 10),
 
-              // 🔹 Modelo
+              // Modelo
               TextFormField(
                 controller: _modelCtrl,
                 decoration: const InputDecoration(labelText: "Modelo"),
@@ -135,7 +135,7 @@ class _AddEditCarScreenState extends State<AddEditCarScreen> {
               ),
               const SizedBox(height: 10),
 
-              // 🔹 Año
+              // Año
               TextFormField(
                 controller: _yearCtrl,
                 keyboardType: TextInputType.number,
@@ -144,7 +144,7 @@ class _AddEditCarScreenState extends State<AddEditCarScreen> {
               ),
               const SizedBox(height: 10),
 
-              // 🔹 Precio
+              // Precio
               TextFormField(
                 controller: _priceCtrl,
                 keyboardType: TextInputType.number,
@@ -153,7 +153,7 @@ class _AddEditCarScreenState extends State<AddEditCarScreen> {
               ),
               const SizedBox(height: 10),
 
-              // 🔹 Categoría
+              // Categoría
               DropdownButtonFormField<String>(
                 value: _selectedCategory,
                 items: _categories.map((cat) {
@@ -172,7 +172,7 @@ class _AddEditCarScreenState extends State<AddEditCarScreen> {
               ),
               const SizedBox(height: 10),
 
-              // 🔹 Descripción
+              // Descripción
               TextFormField(
                 controller: _descCtrl,
                 maxLines: 3,
@@ -184,7 +184,7 @@ class _AddEditCarScreenState extends State<AddEditCarScreen> {
               ),
               const SizedBox(height: 10),
 
-              // 🔹 Disponible
+              // Disponible
               SwitchListTile(
                 title: const Text("Disponible para renta"),
                 value: _available,
@@ -193,7 +193,7 @@ class _AddEditCarScreenState extends State<AddEditCarScreen> {
               ),
               const SizedBox(height: 20),
 
-              // 🔘 Botón guardar
+              // Botón guardar
               ElevatedButton.icon(
                 onPressed: _saveCar,
                 icon: const Icon(Icons.save),

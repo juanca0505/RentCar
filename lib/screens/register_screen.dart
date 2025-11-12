@@ -21,7 +21,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   bool _showPass = false;
   bool _showConfirm = false;
 
-  // ✅ Validaciones previas para evitar errores comunes
+  // Validaciones previas para evitar errores comunes
   bool _validateFields() {
     final name = nameCtrl.text.trim();
     final email = emailCtrl.text.trim();
@@ -73,7 +73,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
       if (success) {
         _showSnack(
-          "Registro exitoso 🎉. Se ha enviado un correo de verificación.",
+          "Registro exitoso . Se ha enviado un correo de verificación.",
           color: Colors.green,
         );
 
@@ -116,7 +116,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 25),
 
-                // 🧍 Nombre
+                // Nombre
                 TextField(
                   controller: nameCtrl,
                   decoration: const InputDecoration(
@@ -126,7 +126,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 15),
 
-                // 📧 Correo
+                // Correo
                 TextField(
                   controller: emailCtrl,
                   keyboardType: TextInputType.emailAddress,
@@ -137,7 +137,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 15),
 
-                // 🔒 Contraseña
+                // Contraseña
                 TextField(
                   controller: passCtrl,
                   obscureText: !_showPass,
@@ -156,7 +156,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 15),
 
-                // 🔒 Confirmar contraseña
+                // Confirmar contraseña
                 TextField(
                   controller: confirmCtrl,
                   obscureText: !_showConfirm,
@@ -178,7 +178,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                 const SizedBox(height: 25),
 
-                // 🔘 Botón de registro
+                // Botón de registro
                 _isLoading
                     ? const CircularProgressIndicator()
                     : ElevatedButton(
@@ -195,7 +195,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                 const SizedBox(height: 15),
 
-                // 🔙 Ir a login
+                // Ir a login
                 TextButton(
                   onPressed: () {
                     Navigator.pushReplacement(

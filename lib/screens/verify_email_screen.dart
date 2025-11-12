@@ -30,7 +30,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
     }
   }
 
-  // 📩 Enviar correo de verificación con control de tiempo
+  // Enviar correo de verificación con control de tiempo
   Future<void> _sendVerificationEmail() async {
     try {
       setState(() {
@@ -40,8 +40,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
 
       final user = _auth.currentUser;
       if (user != null && !user.emailVerified) {
-        // ⚠️ A veces Firebase lanza un error aunque el correo sí se envíe correctamente.
-        // Por eso envolvemos el llamado en try-catch separado.
+    
         try {
           await user.sendEmailVerification();
         } catch (_) {
@@ -54,7 +53,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
         _secondsRemaining = 15;
       });
 
-      // ⏱ Contador regresivo para reactivar botón
+      // Contador regresivo para reactivar botón
       _timer?.cancel();
       _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
         if (_secondsRemaining > 0) {
@@ -65,19 +64,19 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
         }
       });
 
-      // ✅ Notificación amigable
+      // Notificación amigable
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text(
-              "📩 Correo de verificación enviado correctamente. Revisa tu bandeja o carpeta de spam.",
+              " Correo de verificación enviado correctamente. Revisa tu bandeja o carpeta de spam.",
             ),
             backgroundColor: Colors.green,
           ),
         );
       }
     } catch (e) {
-      // ⚙️ Manejo silencioso del error (sin mostrarlo al usuario)
+      // Manejo silencioso del error (sin mostrarlo al usuario)
       debugPrint("Error silencioso al enviar correo: $e");
       setState(() {
         _isLoading = false;
@@ -86,7 +85,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
     }
   }
 
-  // 🔁 Comprobar periódicamente si el correo fue verificado
+  // Comprobar periódicamente si el correo fue verificado
   Future<void> _checkEmailVerified() async {
     await _auth.currentUser?.reload();
     final user = _auth.currentUser;
@@ -97,7 +96,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text("✅ Correo verificado correctamente."),
+            content: Text(" Correo verificado correctamente."),
             backgroundColor: Colors.green,
           ),
         );
@@ -151,7 +150,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                     ),
                     const SizedBox(height: 25),
 
-                    // 🔘 Botón Reenviar correo
+                    // Botón Reenviar correo
                     _isLoading
                         ? const CircularProgressIndicator()
                         : ElevatedButton(

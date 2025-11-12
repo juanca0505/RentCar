@@ -40,7 +40,7 @@ class _AllCarsScreenState extends State<AllCarsScreen> {
       ),
       body: Column(
         children: [
-          // 🔍 Campo de búsqueda
+          // Campo de búsqueda
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
@@ -55,7 +55,7 @@ class _AllCarsScreenState extends State<AllCarsScreen> {
             ),
           ),
 
-          // 🧭 Dropdown de categoría
+          // Dropdown de categoría
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: DropdownButtonFormField<String>(
@@ -77,7 +77,7 @@ class _AllCarsScreenState extends State<AllCarsScreen> {
           ),
           const SizedBox(height: 10),
 
-          // 🔄 StreamBuilder con Firestore
+          // StreamBuilder con Firestore
           Expanded(
             child: StreamBuilder<QuerySnapshot>(
               stream: FirebaseFirestore.instance.collection('cars').snapshots(),
@@ -143,7 +143,7 @@ class _AllCarsScreenState extends State<AllCarsScreen> {
                         ),
                         subtitle: Text('Categoría: ${carData['category'] ?? 'Sin categoría'}'),
 
-                        // ✅ Abrir detalle al tocar
+                        // Abrir detalle al tocar
                         onTap: () {
                           Navigator.push(
                             context,

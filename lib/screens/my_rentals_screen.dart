@@ -30,7 +30,7 @@ class _MyRentalsScreenState extends State<MyRentalsScreen> {
       ),
       body: Column(
         children: [
-          // 🔘 Switch de historial
+          // Switch de historial
           Container(
             color: Colors.white,
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -47,7 +47,7 @@ class _MyRentalsScreenState extends State<MyRentalsScreen> {
             ),
           ),
 
-          // 🔄 Lista de rentas
+          // Lista de rentas
           Expanded(
             child: StreamBuilder<List<RentalModel>>(
               stream: rentalService.getRentalsByUser(user.uid),
@@ -76,7 +76,7 @@ class _MyRentalsScreenState extends State<MyRentalsScreen> {
                   );
                 }
 
-                // 📊 Filtrar según el switch
+                // Filtrar según el switch
                 final allRentals = snapshot.data!;
                 final rentals =
                     showHistory ? allRentals : allRentals.where((r) => r.active).toList();
@@ -131,7 +131,7 @@ class _MyRentalsScreenState extends State<MyRentalsScreen> {
                           style: const TextStyle(fontSize: 14, color: Colors.black54),
                         ),
 
-                        // ⚙️ Opciones de cada renta
+                        // Opciones de cada renta
                         trailing: PopupMenuButton<String>(
                           icon: const Icon(Icons.more_vert),
                           onSelected: (value) async {

@@ -22,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _isLoading = false;
   bool _showPass = false;
 
-  // 🔐 Diálogo de recuperación de contraseña
+  // Diálogo de recuperación de contraseña
   void _showPasswordResetDialog() {
     final TextEditingController resetCtrl = TextEditingController();
 
@@ -79,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  // 🧭 Método principal de inicio de sesión
+  // Método principal de inicio de sesión
   Future<void> _login(BuildContext context) async {
     final email = emailCtrl.text.trim();
     final password = passCtrl.text.trim();
@@ -115,7 +115,7 @@ class _LoginScreenState extends State<LoginScreen> {
             firebase_auth.FirebaseAuth.instance.currentUser;
 
         if (currentUser != null && !currentUser.emailVerified) {
-          // ⚠️ Usuario sin verificar
+          // Usuario sin verificar
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
               content: Text(
@@ -133,7 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
             MaterialPageRoute(builder: (_) => const VerifyEmailScreen()),
           );
         } else {
-          // ✅ Usuario verificado
+          //  Usuario verificado
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (_) => const HomeScreen()),
@@ -195,7 +195,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 20),
 
-                // 📨 Campo de correo
+                // Campo de correo
                 TextField(
                   controller: emailCtrl,
                   keyboardType: TextInputType.emailAddress,
@@ -206,7 +206,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 15),
 
-                // 🔒 Campo de contraseña
+                // Campo de contraseña
                 TextField(
                   controller: passCtrl,
                   obscureText: !_showPass,
@@ -225,7 +225,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 25),
 
-                // 🔘 Botón de login
+                // Botón de login
                 _isLoading
                     ? const CircularProgressIndicator()
                     : ElevatedButton(
@@ -241,7 +241,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                 const SizedBox(height: 15),
 
-                // 🔑 Recuperar contraseña
+                // Recuperar contraseña
                 TextButton(
                   onPressed: _showPasswordResetDialog,
                   child: const Text(
@@ -252,7 +252,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 const SizedBox(height: 10),
 
-                // 📝 Registrarse
+                // Registrarse
                 TextButton(
                   onPressed: () {
                     Navigator.push(

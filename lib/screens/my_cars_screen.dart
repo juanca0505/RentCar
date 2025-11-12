@@ -102,7 +102,7 @@ class MyCarsScreen extends StatelessWidget {
                   trailing: PopupMenuButton<String>(
                     icon: const Icon(Icons.more_vert),
                     onSelected: (value) async {
-                      // 🚫 Bloquear actualizar si está rentado
+                      // Bloquear actualizar si está rentado
                       if (value == 'update') {
                         if (rentado) {
                           ScaffoldMessenger.of(context).showSnackBar(
@@ -124,18 +124,18 @@ class MyCarsScreen extends StatelessWidget {
                           );
                         }
                       } 
-                      // 🚫 Bloquear eliminar si está rentado
+                      // Bloquear eliminar si está rentado
                       else if (value == 'delete' && rentado) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text(
-                              "🚫 No puedes eliminar un carro que está rentado.",
+                              " No puedes eliminar un carro que está rentado.",
                             ),
                             backgroundColor: Colors.orangeAccent,
                           ),
                         );
                       } 
-                      // ✅ Eliminar si no está rentado
+                      // Eliminar si no está rentado
                       else if (value == 'delete' && !rentado) {
                         await carService.deleteCar(car.id);
                         ScaffoldMessenger.of(context).showSnackBar(

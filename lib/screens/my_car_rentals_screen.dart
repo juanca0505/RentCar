@@ -29,7 +29,7 @@ class MyCarRentalsScreen extends StatelessWidget {
             );
           }
 
-          // ⚠️ Error
+          // Error
           if (snapshot.hasError) {
             return const Center(
               child: Text(
@@ -39,7 +39,7 @@ class MyCarRentalsScreen extends StatelessWidget {
             );
           }
 
-          // 📭 Lista vacía
+          // Lista vacía
           if (!snapshot.hasData || snapshot.data!.isEmpty) {
             return const Center(
               child: Text(
@@ -70,7 +70,7 @@ class MyCarRentalsScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
                   child: Row(
                     children: [
-                      // 🖼️ Imagen del carro
+                      // Imagen del carro
                       rent.carImage.isNotEmpty
                           ? ClipRRect(
                               borderRadius: BorderRadius.circular(10),
@@ -89,7 +89,7 @@ class MyCarRentalsScreen extends StatelessWidget {
 
                       const SizedBox(width: 10),
 
-                      // 🧾 Detalle textual
+                      // Detalle textual
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -123,7 +123,7 @@ class MyCarRentalsScreen extends StatelessWidget {
                         ),
                       ),
 
-                      // 🔵 Estado visual de la renta
+                      //  Estado visual de la renta
                       Column(
                         children: [
                           Icon(

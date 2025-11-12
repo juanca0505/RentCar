@@ -6,11 +6,11 @@ import '../models/car_model.dart';
 class CarService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
-  // 🔹 Crear o actualizar carro
+  //  Crear o actualizar carro
   Future<void> saveCar(CarModel car, {File? imageFile}) async {
     String? imageUrl = car.imageUrl;
 
-    // 🖼️ Subir imagen nueva si se seleccionó
+    //  Subir imagen nueva si se seleccionó
     if (imageFile != null) {
       final ref = FirebaseStorage.instance
           .ref()
@@ -20,7 +20,7 @@ class CarService {
       imageUrl = await ref.getDownloadURL();
     }
 
-    // 📦 Datos a guardar o actualizar
+    //  Datos a guardar o actualizar
     final carData = {
       ...car.toMap(),
       'imageUrl': imageUrl,
@@ -33,14 +33,14 @@ class CarService {
       'rentStatus': car.available ? 'disponible' : 'rentado',
     };
 
-    // 🧩 Guardar (merge mantiene datos previos)
+    //  Guardar (merge mantiene datos previos)
     await _db
         .collection('cars')
         .doc(car.id)
         .set(carData, SetOptions(merge: true));
   }
 
-  // 🔹 Obtener los carros del usuario actual
+  // Obtener los carros del usuario actual
   Stream<List<CarModel>> getCarsByUser(String uid) {
     return _db
         .collection('cars')
@@ -50,13 +50,13 @@ class CarService {
             snap.docs.map((d) => CarModel.fromMap(d.data())).toList());
   }
 
-  // 🔹 Obtener todos los carros (para la vista general)
+  // Obtener todos los carros (para la vista general)
   Stream<List<CarModel>> getAllCars() {
     return _db.collection('cars').snapshots().map(
         (snap) => snap.docs.map((d) => CarModel.fromMap(d.data())).toList());
   }
 
-  // 🔹 Eliminar carro y su imagen asociada
+  //  Eliminar carro y su imagen asociada
   Future<void> deleteCar(String carId) async {
     await _db.collection('cars').doc(carId).delete();
 
@@ -68,7 +68,7 @@ class CarService {
     }
   }
 
-  // 🔹 Marcar carro como rentado
+  //  Marcar carro como rentado
   Future<void> markAsRented(String carId, String rentedBy) async {
     await _db.collection('cars').doc(carId).update({
       'available': false,
@@ -77,7 +77,7 @@ class CarService {
     });
   }
 
-  // 🔹 Marcar carro como disponible (cuando finaliza la renta)
+  // Marcar carro como disponible (cuando finaliza la renta)
   Future<void> markAsAvailable(String carId) async {
     await _db.collection('cars').doc(carId).update({
       'available': true,

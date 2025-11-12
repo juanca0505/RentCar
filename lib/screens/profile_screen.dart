@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart' as firebase_auth; // 👈 prefijo agregado
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth; // prefijo agregado
 import 'package:provider/provider.dart';
 import '../models/user_model.dart';
-import '../providers/auth_provider.dart' as local_auth; // 👈 prefijo agregado
+import '../providers/auth_provider.dart' as local_auth; // prefijo agregado
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -164,7 +164,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            // 📸 Imagen de perfil
+            // Imagen de perfil
             GestureDetector(
               onTap: _pickImage,
               child: Stack(
@@ -206,7 +206,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             const SizedBox(height: 15),
 
-            // 🪪 Cédula
+            // Cédula
             TextField(
               controller: cedulaCtrl,
               decoration: const InputDecoration(
@@ -217,7 +217,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             const SizedBox(height: 15),
 
-            // 🏠 Dirección
+            // Dirección
             TextField(
               controller: direccionCtrl,
               decoration: const InputDecoration(
@@ -227,7 +227,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             const SizedBox(height: 15),
 
-            // 📞 Celular
+            // Celular
             TextField(
               controller: celularCtrl,
               decoration: const InputDecoration(
@@ -238,7 +238,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             const SizedBox(height: 15),
 
-            // 📧 Correo (no editable)
+            // Correo (no editable)
             TextField(
               enabled: false,
               decoration: InputDecoration(
@@ -249,7 +249,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             const SizedBox(height: 25),
 
-            // 💾 Botón guardar
+            // Botón guardar
             _isSaving
                 ? const CircularProgressIndicator()
                 : ElevatedButton.icon(
@@ -264,7 +264,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
             const SizedBox(height: 15),
 
-            // 🔑 Botón cambiar contraseña
+            // Botón cambiar contraseña
             OutlinedButton.icon(
               onPressed: _changePassword,
               icon: const Icon(Icons.lock_reset, color: Colors.red),

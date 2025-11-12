@@ -2,7 +2,7 @@
   "project_info": {
     "project_number": "298243169504",
     "project_id": "rentacar-820e7",
-    "storage_bucket": "rentacar-820e7.appspot.com"
+    "storage_bucket": "rentacar-820e7.firebasestorage.app"
   },
   "client": [
     {

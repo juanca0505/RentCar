@@ -7,11 +7,11 @@ class AuthService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
   AuthService() {
-    // ✅ Forzar idioma de correos en español
+    //  Forcé el idioma de correos en español
     _auth.setLanguageCode('es');
   }
 
-  // ✅ Registro con verificación de correo y enlace clickeable
+  // Registro con verificación de correo y enlace clickeable
   Future<UserModel?> register(String name, String email, String password) async {
     try {
       final cred = await _auth.createUserWithEmailAndPassword(
@@ -55,7 +55,7 @@ class AuthService {
     }
   }
 
-  // ✅ Login corregido (permite entrar y luego se valida la verificación)
+  // Login permite entrar y luego se valida la verificación
   Future<UserModel?> login(String email, String password) async {
     try {
       final cred = await _auth.signInWithEmailAndPassword(
@@ -65,7 +65,7 @@ class AuthService {
 
       final user = cred.user;
 
-      // 🔎 Ya no bloqueamos aquí. Permitimos login y luego verificamos en pantalla.
+      //  Ya no bloqueamos aquí permitimos login y luego verificamos en pantalla.
       final doc = await _db.collection('users').doc(user!.uid).get();
       if (!doc.exists) return null;
 
@@ -81,20 +81,20 @@ class AuthService {
         throw Exception(e.message ?? 'Error en inicio de sesión.');
       }
     } catch (e) {
-      throw Exception('❌ Error en login: $e');
+      throw Exception(' Error en login: $e');
     }
   }
 
-  // ✅ Cerrar sesión
+  // Cerrar sesión
   Future<void> logout() async {
     await _auth.signOut();
   }
 
-  // ✅ Recuperar contraseña
+  // Recuperar contraseña
   Future<void> sendPasswordReset(String email) async {
     try {
       await _auth.sendPasswordResetEmail(email: email);
-      print("📧 Correo de recuperación enviado a $email");
+      print("Correo de recuperación enviado a $email");
     } on FirebaseAuthException catch (e) {
       throw Exception(e.message ?? 'Error al enviar correo de recuperación');
     } catch (e) {

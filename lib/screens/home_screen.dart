@@ -7,7 +7,7 @@ import 'add_edit_car_screen.dart';
 import 'my_cars_screen.dart';
 import 'all_cars_screen.dart';
 import 'my_rentals_screen.dart';
-import 'my_car_rentals_screen.dart'; // 👈 Nueva pantalla para propietarios
+import 'my_car_rentals_screen.dart'; // Nueva pantalla para propietarios
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -80,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen>
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // 👤 Foto de perfil
+                    // Foto de perfil
                     CircleAvatar(
                       radius: 60,
                       backgroundColor: Colors.redAccent.withOpacity(0.2),
@@ -91,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen>
                     ),
                     const SizedBox(height: 20),
 
-                    // 👋 Nombre y saludo
+                    // Nombre y saludo
                     Text(
                       "Hola, ${user.name.split(' ').first} 👋",
                       textAlign: TextAlign.center,
@@ -111,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen>
                     ),
                     const SizedBox(height: 40),
 
-                    // 🧭 Menú principal
+                    // Menú principal
                     GridView.count(
                       crossAxisCount: 2,
                       shrinkWrap: true,
@@ -234,7 +234,7 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
-  // 🌈 Card del menú principal
+  // Card del menú principal
   Widget _buildMenuCard({
     required IconData icon,
     required Color color,

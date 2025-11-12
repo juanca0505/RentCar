@@ -20,7 +20,7 @@ class RentalService {
             snap.docs.map((doc) => RentalModel.fromMap(doc.data())).toList());
   }
 
-  // 🔥 Obtener rentas por propietario (dueño del carro)
+  // Obtener rentas por propietario (dueño del carro)
   Stream<List<RentalModel>> getRentalsByOwner(String ownerId) {
     return _db
         .collection('rentals')
